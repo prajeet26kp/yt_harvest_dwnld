@@ -37,16 +37,23 @@ search_download(
 # ── Example 2: channel download ────────────────────────────────────────────────
 # Downloads all full videos (10–60 min) from a specific channel.
 
+
+
+
 channel_download(
-    channel_url="https://www.youtube.com/@SomeChannel",
+    channel_url="https://www.youtube.com/@AmazonMXPlayer",
     output_dir="./audio/channel",
-    min_duration=600,       # 10 min
-    max_duration=3600,      # 60 min
-    video_type="full",      # "full" | "shorts" | "both"
+    min_duration=1200,  
+    max_results=60, 
+    max_downloads=30,
     audio_format="wav",
     transcript_lang="hi",
     rate_limit="10M",
+    filters=FilterConfig(
+          title_must_contain=["Episode", "episodes"],                                                                                                                
+      ),                                                                                                                                                                                               
 )
+
 
 
 # ── Example 3: fine-grained FilterConfig ──────────────────────────────────────
